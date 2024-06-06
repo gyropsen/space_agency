@@ -1,0 +1,59 @@
+<!doctype html>
+{% load static %}
+{% load media_tags %}
+
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Space agency · Gyropsen</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+        }
+
+    </style>
+</head>
+<body>
+
+<main>
+    <div class="container py-4">
+        {% include 'agency/includes/inc_header.html' %}
+
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h1 class="display-4 fw-normal text-body-emphasis">{{title}}</h1>
+            <p class="fs-5 text-body-secondary">{{description}}</p>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+        {% include 'agency/includes/inc_footer.html' %}
+    </div>
+</main>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<script type="text/javascript" src="{% static 'slick/slick.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'slick/main.js' %}"></script>
+
+</body>
+</html>

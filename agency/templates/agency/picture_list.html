@@ -1,0 +1,59 @@
+{% extends 'agency/base.html' %}
+{% load static %}
+{% load media_tags %}
+{% load thumbnail %}
+{% block content %}
+<div class="row">
+    <div class="row mb-5 align-items-md-stretch">
+        <div class="row col-md-3">
+            <div class="p-5 bg-light rounded-3 text-center">
+                <img src="{% static 'favicons/rocket.svg' %}">
+                <h5>Спейс шаттлы — пилотируемые корабли</h5>
+            </div>
+            <div class="p-5 bg-light rounded-3 text-center">
+                <img src="{% static 'favicons/ion_telescope.svg' %}">
+                <h5>Лучшее телескопическое оборудование</h5>
+            </div>
+        </div>
+        <div class="row col-md-3">
+            <div class="p-5 bg-light rounded-3 text-center">
+                <img src="{% static 'favicons/bi_moon-stars-fill.svg' %}">
+                <h5>Целимся на Луну и Марс</h5>
+            </div>
+            <div class="p-5 bg-light rounded-3 text-center">
+                <img src="{% static 'favicons/bxs_medal.svg' %}">
+                <h5>Золотая медаль по научным исследованиям</h5>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="h-100 p-5 bg-light rounded-3 text-center">
+                <img class="card-img-top" src="{% media_tag 'universe.jpeg' %}"
+                     alt="Card image cap" style="width: 457px; height: 457px; background: url(.jpg), #C4C4C4; box-shadow:
+                 0px 12px 24px rgba(0, 29, 86, 0.2); border-radius: 40px; flex: none; order: 1; flex-grow: 0;">
+            </div>
+        </div>
+    </div>
+
+    <div class="p-5 mb-4 text-light text-center rounded-3" style="background: #3C3C3C;">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Фотографии</h1>
+            <div class="slider slider-for p-5">
+                {% for object in object_list %}
+                <div>
+                    <img class="card-img-top" src="{% thumbnail object.image 250x250 crop %}"
+                         alt="Card image cap" style="width: 750px; height: 420px; border-radius: 40px;">
+                </div>
+                {% endfor %}
+            </div>
+            <div class="slider slider-nav p-5">
+                {% for object in object_list %}
+                <div>
+                    <img class="card-img-top" src="{% thumbnail object.image 180x180 crop %}"
+                         alt="Card image cap" style="width: 165px; height: 165px; border-radius: 40px;">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
